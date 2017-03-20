@@ -1,7 +1,6 @@
 Feature: Movie Detail
     Background:
         Given the following movies exist:
-            | name        |
             | La La Land  |
             | Moonlight   |
             | Zootopia    |
@@ -12,7 +11,7 @@ Feature: Movie Detail
         When I view all movies detail
         Then I get 3 movies detail
 
-    @movie_endpoint_/{id}_GET
+    @movie_endpoint_/_GET
     Scenario Outline: View a Specific Movie Detail
         Given I am a guest
             And I provide a <movieName>
