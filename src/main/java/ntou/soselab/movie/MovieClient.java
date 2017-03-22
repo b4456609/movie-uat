@@ -14,7 +14,7 @@ public interface MovieClient {
     Call<List<MovieDTO>> getTimetable();
 
     @GET("/movie/")
-    Call<List<MovieDTO>> groupList(@Query("q") String sort);
+    Call<List<MovieDTO>> getMovieDetail(@Query("q") String name);
 
     @POST("/movie/")
     Call<Void> addMovie(@Body MovieDTO movieDTO);
