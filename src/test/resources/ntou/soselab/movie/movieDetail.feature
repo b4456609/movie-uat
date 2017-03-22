@@ -15,8 +15,8 @@ Feature: Movie Detail
     Scenario Outline: View a Specific Movie Detail
         Given I am a guest
             And I provide a <movieName>
-        When I view a specific movies detail
-        Then The movie name should be exist
+        When I view <movieName> detail
+        Then The movie should be exist
 
         Examples:
             | movieName   |

@@ -1,37 +1,59 @@
 package ntou.soselab.movie;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class MovieDetail {
+    ObjectMapper mapper = new ObjectMapper();
+
+    private Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://localhost:8080/")
+            .addConverterFactory(JacksonConverterFactory.create())
+            .build();
+
+    private MovieClient movieClient;
+    private List<MovieDTO> timetable;
+
+    @Before
+    public void before() {
+        movieClient = retrofit.create(MovieClient.class);
+    }
 
     @Given("^the following movies exist:$")
     public void the_following_movies_exist(List<List<String>> movies) throws Throwable {
+        movies.forEach(movie -> {
+            MovieDTO movieDTO = new MovieDTO();
+            movieDTO.setTitle(movie.get(0));
+            movieClient.addMovie(movieDTO);
+        });
         System.out.println(movies);
-
     }
 
     @Given("^I am a guest$")
     public void i_am_a_guest() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
     }
 
     @When("^I view all movies detail$")
     public void i_view_all_movies_detail() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        timetable = movieClient.getTimetable().execute().body();
     }
 
     @Then("^I get (\\d+) movies detail$")
     public void i_get_movies_detail(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+       assertThat(timetable.size()).isEqualTo(arg1);
+
     }
 
     @Given("^I provide a La La Land$")
