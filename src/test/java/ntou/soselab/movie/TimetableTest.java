@@ -11,22 +11,28 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class TimetableTest {
 
     private Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://localhost:8080/")
             .addConverterFactory(JacksonConverterFactory.create())
             .build();
+    private TheaterClient theaterClient;
+    private List<ShowDTO> body;
 
     @Given("^the following show exist:$")
     public void the_following_show_exist(List<Timetable> timetables) throws Throwable {
         timetables.stream()
                 .map(item -> {
                     ShowDTO showDTO = new ShowDTO();
-                    DateTime dt = new DateTime(2017, 3, 26, item.getStartTimeHour(), item.getStartTimeMinute(), 0, 0);
+                    DateTime dt = new DateTime(2017, 3, 26,
+                            item.getStartTimeHour(), item.getStartTimeMinute(), 0, 0);
                     long millis = dt.getMillis();
                     showDTO.setStart(millis);
                     showDTO.setId("");
+                    //TODO
                     return showDTO;
                 });
         throw new PendingException();
@@ -34,14 +40,13 @@ public class TimetableTest {
 
     @When("^I view timetable$")
     public void i_view_timetable() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        this.theaterClient = retrofit.create(TheaterClient.class);
+        body = this.theaterClient.getTimetable().execute().body();
     }
 
     @Then("^I get (\\d+) show information$")
     public void i_get_show_information(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertThat(body.size()).isEqualTo(arg1);
     }
 
     @When("^I view show detail$")
