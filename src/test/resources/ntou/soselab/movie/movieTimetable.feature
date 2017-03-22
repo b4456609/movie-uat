@@ -2,11 +2,11 @@ Feature: Movie Timetable
 
     Background:
         Given the following show exist:
-            | startTime  | theater | emptySeat | movie       |
-            | 10:00      | 2       | 21        | La La Land  |
-            | 10:10      | 3       | 12        | La La Land  |
-            | 10:20      | 1       | 2         | Moonlight   |
-            | 13:00      | 4       | 0         | Zootopia    |
+            | startTimeHour  | startTimeMinute  | theater | emptySeat | movie       |
+            | 10             |           0      | 2       | 21        | La La Land  |
+            | 10             |          10      | 3       | 12        | La La Land  |
+            | 10             |          20      | 1       | 2         | Moonlight   |
+            | 13             |           0      | 4       | 0         | Zootopia    |
 
     @movie_endpoint_/timetable_GET
     Scenario: View Movie Timetable

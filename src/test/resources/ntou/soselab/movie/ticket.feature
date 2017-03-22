@@ -6,8 +6,8 @@ Feature: Ticket
             | name  | phone       |
             | Ben   | 1234567890  |
             And the show exist:
-                | startTime  | theater | emptySeat | movie       |
-                | 10:00      | 2       | 21        | La La Land  |
+                | startTimeHour  | startTimeMinute  |theater | emptySeat | movie       |
+                | 10             | 30               | 2      | 21        | La La Land  |
         When The user book a La La Land ticket
         Then Successful book the ticket
 
