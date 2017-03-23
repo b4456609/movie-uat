@@ -24,17 +24,21 @@ public class TimetableTest {
 
     @Given("^the following show exist:$")
     public void the_following_show_exist(List<Timetable> timetables) throws Throwable {
-        timetables.stream()
-                .map(item -> {
-                    ShowDTO showDTO = new ShowDTO();
-                    DateTime dt = new DateTime(2017, 3, 26,
-                            item.getStartTimeHour(), item.getStartTimeMinute(), 0, 0);
-                    long millis = dt.getMillis();
-                    showDTO.setStart(millis);
-                    showDTO.setId("");
-                    //TODO
-                    return showDTO;
-                });
+        timetables.forEach(item -> {
+            MovieDTO movieDTO = new MovieDTO();
+            TheaterDTO theaterDTO = new TheaterDTO();
+            ShowDTO showDTO = new ShowDTO();
+            DateTime dt = new DateTime(2017, 3, 26,
+                    item.getStartTimeHour(), item.getStartTimeMinute(), 0, 0);
+            long millis = dt.getMillis();
+            showDTO.setStart(millis);
+            showDTO.setEnd(dt.plus((1000 * 60 * 60 * 2)).getMillis());
+            showDTO.setEmptySeat(item.getEmptySeat());
+            showDTO.setMovieId();
+            showDTO.setTheaterId();
+            //TODO
+            return showDTO;
+        });
         throw new PendingException();
     }
 

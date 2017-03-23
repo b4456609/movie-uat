@@ -7,7 +7,7 @@ public class Timetable {
     private int startTimeMinute;
     private int startTimeHour;
     private String theater;
-    private String emptySeat;
+    private int emptySeat;
     private String movie;
 
     public Timetable() {
@@ -37,11 +37,11 @@ public class Timetable {
         this.theater = theater;
     }
 
-    public String getEmptySeat() {
+    public int getEmptySeat() {
         return emptySeat;
     }
 
-    public void setEmptySeat(String emptySeat) {
+    public void setEmptySeat(int emptySeat) {
         this.emptySeat = emptySeat;
     }
 
