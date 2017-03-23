@@ -55,7 +55,7 @@ public class UserTest {
         id = body.getId();
     }
 
-    @Then("^I can check my name is Ben$")
+    @Then("^I can check my name is Ben")
     public void i_can_check_my_name_is_Ben() throws Throwable {
         assertThat(body.getName()).isEqualToIgnoringCase("Ben");
     }
@@ -67,7 +67,7 @@ public class UserTest {
 
     @Given("^I provide a Marry$")
     public void i_provide_a_Marry() throws Throwable {
-        name = "Marry$";
+        name = "Marry";
     }
 
     @Then("^I can check my name is Marry$")
