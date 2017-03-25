@@ -17,7 +17,7 @@ public class TimetableTest {
 
     private final Show show = new Show();
     private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://localhost:8080/")
+            .baseUrl(ZuulURL.getURL())
             .addConverterFactory(JacksonConverterFactory.create())
             .build();
     private TheaterClient theaterClient;

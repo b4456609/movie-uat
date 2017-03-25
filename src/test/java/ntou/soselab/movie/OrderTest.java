@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OrderTest {
 
     private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://localhost:8080/")
+            .baseUrl(ZuulURL.getURL())
             .addConverterFactory(JacksonConverterFactory.create())
             .build();
     private UserClient userClient;

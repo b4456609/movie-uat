@@ -1,13 +1,10 @@
 package ntou.soselab.movie;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -19,7 +16,7 @@ public class MovieDetail {
     ObjectMapper mapper = new ObjectMapper();
 
     private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://localhost:8080/")
+            .baseUrl(ZuulURL.getURL())
             .addConverterFactory(JacksonConverterFactory.create())
             .build();
 
