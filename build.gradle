@@ -32,6 +32,9 @@ dependencies {
     compile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'joda-time:joda-time:2.9.7'
+    compileOnly group: 'org.projectlombok', name: 'lombok-maven', version: '1.16.14.0'
+    compile group: 'org.json', name: 'json', version: '20160810'
+
     compile group: 'com.squareup.retrofit2', name: 'converter-jackson', version: '2.2.0'
 }
 configurations {

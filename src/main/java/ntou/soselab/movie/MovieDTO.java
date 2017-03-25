@@ -1,5 +1,6 @@
 package ntou.soselab.movie;
 
+
 public class MovieDTO {
     private String title;
     private String year;

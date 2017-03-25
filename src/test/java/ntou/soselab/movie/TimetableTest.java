@@ -1,6 +1,5 @@
 package ntou.soselab.movie;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -10,23 +9,39 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TimetableTest {
 
+    private final Show show = new Show();
     private Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://localhost:8080/")
             .addConverterFactory(JacksonConverterFactory.create())
             .build();
     private TheaterClient theaterClient;
+    private MovieClient movieClient;
     private List<ShowDTO> body;
+    private List<ShowDTO> showDTOS;
 
     @Given("^the following show exist:$")
     public void the_following_show_exist(List<Timetable> timetables) throws Throwable {
+        this.theaterClient = retrofit.create(TheaterClient.class);
+        this.movieClient = retrofit.create(MovieClient.class);
         timetables.forEach(item -> {
+            //add movie
             MovieDTO movieDTO = new MovieDTO();
-            TheaterDTO theaterDTO = new TheaterDTO();
+            movieDTO.setTitle("La La Land");
+            movieDTO.setActors("Ryan Gosling, Emma Stone, Amiée Conn, Terry Walters");
+            movieDTO.setDirector("Damien Chazelle");
+            movieDTO.setGenre("Comedy, Drama, Musical");
+            movieDTO.setPlot("A jazz pianist falls for an aspiring actress in Los Angeles.");
+            movieDTO.setRunTime("128 min");
+            movieDTO.setRated("PG-13");
+            movieDTO.setYear("2016");
+
+            //add show
             ShowDTO showDTO = new ShowDTO();
             DateTime dt = new DateTime(2017, 3, 26,
                     item.getStartTimeHour(), item.getStartTimeMinute(), 0, 0);
@@ -34,17 +49,13 @@ public class TimetableTest {
             showDTO.setStart(millis);
             showDTO.setEnd(dt.plus((1000 * 60 * 60 * 2)).getMillis());
             showDTO.setEmptySeat(item.getEmptySeat());
-            showDTO.setMovieId();
-            showDTO.setTheaterId();
-            //TODO
-            return showDTO;
+
+            show.addShow(movieDTO, null, showDTO);
         });
-        throw new PendingException();
     }
 
     @When("^I view timetable$")
     public void i_view_timetable() throws Throwable {
-        this.theaterClient = retrofit.create(TheaterClient.class);
         body = this.theaterClient.getTimetable().execute().body();
     }
 
@@ -55,19 +66,19 @@ public class TimetableTest {
 
     @When("^I view show detail$")
     public void i_view_show_detail() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        showDTOS = theaterClient.getTimetable().execute().body();
     }
 
     @Then("^The number of result should be (\\d+)$")
     public void the_number_of_result_should_be(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertThat(showDTOS.size()).isEqualTo(arg1);
     }
 
     @Then("^(\\d+) empty seat should be exist in one item$")
     public void empty_seat_should_be_exist_in_one_item(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        Optional<ShowDTO> any = showDTOS.stream()
+                .filter(i -> i.getEmptySeat() == arg1)
+                .findAny();
+        assertThat(any.isPresent()).isTrue();
     }
 }

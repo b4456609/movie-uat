@@ -17,5 +17,5 @@ public interface MovieClient {
     Call<List<MovieDTO>> getMovieDetail(@Query("q") String name);
 
     @POST("/movie/")
-    Call<Void> addMovie(@Body MovieDTO movieDTO);
+    Call<String> addMovie(@Body MovieDTO movieDTO);
 }

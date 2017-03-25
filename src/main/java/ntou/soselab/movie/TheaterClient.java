@@ -17,5 +17,8 @@ public interface TheaterClient {
     Call<ShowDTO> getShowDetail(@Path("showId") String showId);
 
     @POST("/theater/show")
-    Call<Void> addShow(@Body ShowDTO showDTO);
+    Call<ShowDTO> addShow(@Body ShowDTO showDTO);
+
+    @POST("/theater/")
+    Call<String> addTheater(@Body TheaterDTO theaterDTO);
 }
