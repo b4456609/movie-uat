@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import ntou.soselab.movie.model.Timetable;
 import org.joda.time.DateTime;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -53,7 +54,10 @@ public class TimetableTest {
 
     @When("^I view timetable$")
     public void i_view_timetable() throws Throwable {
-        body = this.theaterClient.getTimetable().execute().body();
+        Response<List<ShowDTO>> execute = this.theaterClient.getTimetable(null).execute();
+        assert execute.code() == 200;
+        body = execute.body();
+        System.out.println(body);
     }
 
     @Then("^I get (\\d+) show information$")
@@ -61,9 +65,11 @@ public class TimetableTest {
         assertThat(body.size()).isEqualTo(arg1);
     }
 
-    @When("^I view show detail$")
-    public void i_view_show_detail() throws Throwable {
-        showDTOS = theaterClient.getTimetable().execute().body();
+    @When("^I view show, La La Land, detail$")
+    public void iViewShowMovieDetail() throws Throwable {
+        Response<List<ShowDTO>> execute = theaterClient.getTimetable("La La Land").execute();
+        assert execute.code() == 200;
+        showDTOS = execute.body();
     }
 
     @Then("^The number of result should be (\\d+)$")

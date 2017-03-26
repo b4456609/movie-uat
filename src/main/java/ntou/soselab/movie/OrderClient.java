@@ -1,10 +1,7 @@
 package ntou.soselab.movie;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.*;
 
 import java.util.List;
 
@@ -17,4 +14,7 @@ public interface OrderClient {
 
     @POST("/order/tickets/{orderId}")
     Call<PickTicketsResultDTO> pickUpTickets(@Path("orderId") String orderId);
+
+    @DELETE("/order/reset")
+    Call<Void> reset();
 }

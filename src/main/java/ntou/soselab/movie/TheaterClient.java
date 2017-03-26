@@ -1,17 +1,14 @@
 package ntou.soselab.movie;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.*;
 
 import java.util.List;
 
 
 public interface TheaterClient {
     @GET("/theater/timetable")
-    Call<List<ShowDTO>> getTimetable();
+    Call<List<ShowDTO>> getTimetable(@Query("q") String name);
 
     @GET("/theater/show/{showId}")
     Call<ShowDTO> getShowDetail(@Path("showId") String showId);
@@ -21,4 +18,7 @@ public interface TheaterClient {
 
     @POST("/theater/")
     Call<String> addTheater(@Body TheaterDTO theaterDTO);
+
+    @DELETE("/theater/reset")
+    Call<Void> reset();
 }

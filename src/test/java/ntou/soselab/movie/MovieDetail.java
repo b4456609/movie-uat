@@ -1,5 +1,6 @@
 package ntou.soselab.movie;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -25,8 +26,10 @@ public class MovieDetail {
     private List<MovieDTO> zooMovies;
 
     @Before
-    public void before() {
+    public void before() throws IOException {
         movieClient = retrofit.create(MovieClient.class);
+        Response<Void> execute = movieClient.reset().execute();
+        assert execute.code() == 200;
     }
 
     @Given("^the following movies exist:$")
@@ -41,7 +44,6 @@ public class MovieDetail {
                 e.printStackTrace();
             }
         });
-        System.out.println(movies);
     }
 
     @Given("^I am a guest$")
@@ -51,12 +53,14 @@ public class MovieDetail {
 
     @When("^I view all movies detail$")
     public void i_view_all_movies_detail() throws Throwable {
-        timetable = movieClient.getMovieDetail(null).execute().body();
+        Response<List<MovieDTO>> execute = movieClient.getMovieDetail(null).execute();
+        assert execute.code() == 200;
+        timetable = execute.body();
     }
 
     @Then("^I get (\\d+) movies detail$")
     public void i_get_movies_detail(int arg1) throws Throwable {
-       assertThat(timetable.size()).isGreaterThan(arg1);
+       assertThat(timetable.size()).isEqualTo(arg1);
     }
 
     @Given("^I provide a La La Land$")
@@ -86,7 +90,9 @@ public class MovieDetail {
 
     @When("^I view Moonlight detail$")
     public void i_view_Moonlight_detail() throws Throwable {
-        moonMovies = movieClient.getMovieDetail(moonQuery).execute().body();
+        Response<List<MovieDTO>> execute = movieClient.getMovieDetail(moonQuery).execute();
+        assert execute.code() == 200;
+        moonMovies = execute.body();
     }
 
     @Given("^I provide a Zootopia$")
@@ -96,12 +102,13 @@ public class MovieDetail {
 
     @When("^I view Zootopia detail$")
     public void i_view_Zootopia_detail() throws Throwable {
-        zooMovies = movieClient.getMovieDetail(zooQuery).execute().body();
+        Response<List<MovieDTO>> execute = movieClient.getMovieDetail(zooQuery).execute();
+        assert execute.code() == 200;
+        zooMovies = execute.body();
     }
 
-    @Then("The Zootopia should be exist")
+    @Then("^The Zootopia should be exist$")
     public void The_Zootopia_should_be_exist(){
         assertThat(zooMovies.get(0).getTitle()).isEqualToIgnoringCase(zooQuery);
     }
-
 }

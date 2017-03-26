@@ -24,8 +24,6 @@ public class OrderTest {
     private Retrofit retrofit = GetRetrofit.get();
     private UserClient userClient;
     private OrderClient orderClient;
-    private TheaterClient theaterClient;
-    private MovieClient movieClient;
     private Show show = new Show();
     private ShowDTO showDTO1;
     private UserDTO userBen;
@@ -36,8 +34,6 @@ public class OrderTest {
     public void before() {
         userClient = retrofit.create(UserClient.class);
         orderClient = retrofit.create(OrderClient.class);
-        theaterClient = retrofit.create(TheaterClient.class);
-        movieClient = retrofit.create(MovieClient.class);
     }
 
     @Given("^the following the user exist:$")

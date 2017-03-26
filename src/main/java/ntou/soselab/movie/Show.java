@@ -2,6 +2,7 @@ package ntou.soselab.movie;
 
 
 import org.json.JSONObject;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -12,10 +13,7 @@ public class Show {
     private MovieClient movieClient;
 
     public Show() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://localhost:8080/")
-                .addConverterFactory(JacksonConverterFactory.create())
-                .build();
+        Retrofit retrofit = GetRetrofit.get();
         theaterClient = retrofit.create(TheaterClient.class);
         movieClient = retrofit.create(MovieClient.class);
     }
@@ -29,7 +27,9 @@ public class Show {
      */
     public ShowDTO addShow(MovieDTO movieDTO, TheaterDTO theaterDTO, ShowDTO showDTO) {
         try {
-            String result = movieClient.addMovie(movieDTO).execute().body();
+            Response<String> execute = movieClient.addMovie(movieDTO).execute();
+            assert execute.code() == 200;
+            String result = execute.body();
             JSONObject jsonObject = new JSONObject(result);
             String movieId = jsonObject.getString("id");
 
@@ -44,7 +44,10 @@ public class Show {
                 theaterDTO1 = theaterDTO;
             }
 
-            String theaterResponse = theaterClient.addTheater(theaterDTO1).execute().body();
+            Response<String> execute1 = theaterClient.addTheater(theaterDTO1).execute();
+            assert execute1.code() == 200;
+
+            String theaterResponse = execute1.body();
             JSONObject theaterResponseObject = new JSONObject(theaterResponse);
             String theaterId = theaterResponseObject.getString("id");
 
@@ -54,7 +57,9 @@ public class Show {
             showDTO.setMovieId(movieId);
             showDTO.setTheaterId(theaterId);
 
-            return theaterClient.addShow(showDTO).execute().body();
+            Response<ShowDTO> execute2 = theaterClient.addShow(showDTO).execute();
+            assert execute2.code() == 200;
+            return execute2.body();
         } catch (IOException e) {
             e.printStackTrace();
         }

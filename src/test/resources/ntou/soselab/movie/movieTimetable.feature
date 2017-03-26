@@ -14,11 +14,10 @@ Feature: Movie Timetable
         When I view timetable
         Then I get 4 show information
 
-    @theater_endpoint_/show/{showId}_GET
+    @theater_endpoint_/timetable_GET
     Scenario Outline: View Show Detail
         Given I am a guest
-            And I provide a <movie>
-        When I view show detail
+        When I view show, <movie>, detail
         Then The number of result should be <resultNumber>
             And <emptySeat> empty seat should be exist in one item
 
