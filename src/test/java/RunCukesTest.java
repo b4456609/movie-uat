@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty", "json:target/cucumber/cucumber.json"})
+@CucumberOptions(plugin = {"pretty", "json:target/cucumber/cucumber.json", "html:target/cucumber"})
 public class RunCukesTest {
 }

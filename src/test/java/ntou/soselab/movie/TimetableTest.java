@@ -16,10 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TimetableTest {
 
     private final Show show = new Show();
-    private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(ZuulURL.getURL())
-            .addConverterFactory(JacksonConverterFactory.create())
-            .build();
+    private Retrofit retrofit = GetRetrofit.get();
     private TheaterClient theaterClient;
     private MovieClient movieClient;
     private List<ShowDTO> body;

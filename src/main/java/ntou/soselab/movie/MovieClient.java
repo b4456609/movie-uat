@@ -10,10 +10,7 @@ import retrofit2.http.Query;
 import java.util.List;
 
 public interface MovieClient {
-    @GET("/movie/timetable")
-    Call<List<MovieDTO>> getTimetable();
-
-    @GET("/movie/")
+    @GET("/movie/find")
     Call<List<MovieDTO>> getMovieDetail(@Query("q") String name);
 
     @POST("/movie/")

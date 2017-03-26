@@ -11,10 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserTest {
 
-    private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(ZuulURL.getURL())
-            .addConverterFactory(JacksonConverterFactory.create())
-            .build();
+    private Retrofit retrofit = GetRetrofit.get();
 
     private String name;
     private String phone;
@@ -58,7 +55,7 @@ public class UserTest {
 
     @Then("^I can check my phone number is (\\d+)$")
     public void i_can_check_my_phone_number_is(int arg1) throws Throwable {
-        assertThat(body.getName()).isEqualToIgnoringCase(String.valueOf(arg1));
+        assertThat(body.getPhone()).isEqualToIgnoringCase(String.valueOf(arg1));
     }
 
     @Given("^I provide a Marry$")
@@ -68,6 +65,6 @@ public class UserTest {
 
     @Then("^I can check my name is Marry$")
     public void i_can_check_my_name_is_Marry() throws Throwable {
-        assertThat(body.getName()).isEqualToIgnoringCase("Marry$");
+        assertThat(body.getName()).isEqualToIgnoringCase("Marry");
     }
 }

@@ -21,10 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class OrderTest {
 
-    private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(ZuulURL.getURL())
-            .addConverterFactory(JacksonConverterFactory.create())
-            .build();
+    private Retrofit retrofit = GetRetrofit.get();
     private UserClient userClient;
     private OrderClient orderClient;
     private TheaterClient theaterClient;

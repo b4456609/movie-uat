@@ -11,12 +11,12 @@ Feature: Movie Detail
         When I view all movies detail
         Then I get 3 movies detail
 
-    @movie_endpoint_/_GET
+    @movie_endpoint_/find_GET
     Scenario Outline: View a Specific Movie Detail
         Given I am a guest
             And I provide a <movieName>
         When I view <movieName> detail
-        Then The movie should be exist
+        Then The <movieName> should be exist
 
         Examples:
             | movieName   |
