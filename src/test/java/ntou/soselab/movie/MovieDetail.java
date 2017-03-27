@@ -1,10 +1,12 @@
 package ntou.soselab.movie;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import ntou.soselab.movie.client.MovieClient;
+import ntou.soselab.movie.config.GetRetrofit;
+import ntou.soselab.movie.dto.MovieDTO;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
@@ -28,8 +30,8 @@ public class MovieDetail {
     @Before
     public void before() throws IOException {
         movieClient = retrofit.create(MovieClient.class);
-        Response<Void> execute = movieClient.reset().execute();
-        assert execute.code() == 200;
+//        Response<Void> execute = movieClient.reset().execute();
+//        assert execute.code() == 200;
     }
 
     @Given("^the following movies exist:$")
@@ -38,7 +40,7 @@ public class MovieDetail {
             MovieDTO movieDTO = new MovieDTO();
             movieDTO.setTitle(movie.get(0));
             try {
-                Response<String> execute = movieClient.addMovie(movieDTO).execute();
+                Response<MovieDTO> execute = movieClient.addMovie(movieDTO).execute();
                 assert execute.code() == 200;
             } catch (IOException e) {
                 e.printStackTrace();

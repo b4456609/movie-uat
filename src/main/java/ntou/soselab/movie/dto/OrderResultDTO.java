@@ -1,14 +1,12 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.dto;
 
-public class PickTicketsResultDTO {
-    /**
-     * id : string
-     * pickUp : true
-     * showId : string
-     * ticket : 0
-     * timestamp : 0
-     * userId : string
-     */
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+/**
+ * Created by bernie on 2017/3/25.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class OrderResultDTO {
 
     private String id;
     private boolean pickUp;

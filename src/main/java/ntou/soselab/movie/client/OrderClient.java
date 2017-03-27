@@ -1,5 +1,8 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.client;
 
+import ntou.soselab.movie.dto.BookDTO;
+import ntou.soselab.movie.dto.OrderResultDTO;
+import ntou.soselab.movie.dto.PickTicketsResultDTO;
 import retrofit2.Call;
 import retrofit2.http.*;
 

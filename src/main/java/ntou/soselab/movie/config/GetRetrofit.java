@@ -1,7 +1,8 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.config;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ntou.soselab.movie.config.ZuulURL;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 

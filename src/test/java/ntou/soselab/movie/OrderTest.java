@@ -4,12 +4,15 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import ntou.soselab.movie.client.OrderClient;
+import ntou.soselab.movie.client.UserClient;
+import ntou.soselab.movie.config.GetRetrofit;
+import ntou.soselab.movie.dto.*;
 import ntou.soselab.movie.model.OrderUser;
 import ntou.soselab.movie.model.Timetable;
 import org.joda.time.DateTime;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,11 +35,12 @@ public class OrderTest {
 
     @Before
     public void before() {
+        System.out.println();
         userClient = retrofit.create(UserClient.class);
         orderClient = retrofit.create(OrderClient.class);
     }
 
-    @Given("^the following the user exist:$")
+    @Given("^the following user exist:$")
     public void the_following_the_user_exist(List<OrderUser> orderUserList) throws Throwable {
         orderUserList.forEach(user -> {
             UserDTO userDTO = new UserDTO();

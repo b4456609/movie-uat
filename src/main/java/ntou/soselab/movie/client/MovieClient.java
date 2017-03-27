@@ -1,6 +1,7 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.client;
 
 
+import ntou.soselab.movie.dto.MovieDTO;
 import retrofit2.Call;
 import retrofit2.http.*;
 
@@ -11,7 +12,7 @@ public interface MovieClient {
     Call<List<MovieDTO>> getMovieDetail(@Query("q") String name);
 
     @POST("/movie/")
-    Call<String> addMovie(@Body MovieDTO movieDTO);
+    Call<MovieDTO> addMovie(@Body MovieDTO movieDTO);
 
     @DELETE("/movie/reset")
     Call<Void> reset();

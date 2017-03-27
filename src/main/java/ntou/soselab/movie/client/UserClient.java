@@ -1,12 +1,11 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.client;
 
 
+import ntou.soselab.movie.dto.UserDTO;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.POST;
-
-import java.util.List;
 
 public interface UserClient {
     @POST("/user/registration")

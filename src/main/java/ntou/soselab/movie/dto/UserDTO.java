@@ -1,4 +1,4 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.dto;
 
 
 public class UserDTO {

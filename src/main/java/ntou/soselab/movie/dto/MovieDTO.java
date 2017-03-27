@@ -1,7 +1,8 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.dto;
 
 
 public class MovieDTO {
+    private String id;
     private String title;
     private String year;
     private String rated;
@@ -12,6 +13,14 @@ public class MovieDTO {
     private String plot;
 
     public MovieDTO() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -76,5 +85,20 @@ public class MovieDTO {
 
     public void setPlot(String plot) {
         this.plot = plot;
+    }
+
+    @Override
+    public String toString() {
+        return "MovieDTO{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", year='" + year + '\'' +
+                ", rated='" + rated + '\'' +
+                ", runTime='" + runTime + '\'' +
+                ", genre='" + genre + '\'' +
+                ", director='" + director + '\'' +
+                ", actors='" + actors + '\'' +
+                ", plot='" + plot + '\'' +
+                '}';
     }
 }

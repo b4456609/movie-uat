@@ -1,10 +1,15 @@
 package ntou.soselab.movie;
 
 
+import ntou.soselab.movie.client.MovieClient;
+import ntou.soselab.movie.client.TheaterClient;
+import ntou.soselab.movie.config.GetRetrofit;
+import ntou.soselab.movie.dto.MovieDTO;
+import ntou.soselab.movie.dto.ShowDTO;
+import ntou.soselab.movie.dto.TheaterDTO;
 import org.json.JSONObject;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 
@@ -27,11 +32,11 @@ public class Show {
      */
     public ShowDTO addShow(MovieDTO movieDTO, TheaterDTO theaterDTO, ShowDTO showDTO) {
         try {
-            Response<String> execute = movieClient.addMovie(movieDTO).execute();
+            Response<MovieDTO> execute = movieClient.addMovie(movieDTO).execute();
             assert execute.code() == 200;
-            String result = execute.body();
-            JSONObject jsonObject = new JSONObject(result);
-            String movieId = jsonObject.getString("id");
+            MovieDTO result = execute.body();
+            System.out.println(result);
+            String movieId = result.getId();
 
             assert movieId != null;
 
@@ -44,12 +49,12 @@ public class Show {
                 theaterDTO1 = theaterDTO;
             }
 
-            Response<String> execute1 = theaterClient.addTheater(theaterDTO1).execute();
+            Response<TheaterDTO> execute1 = theaterClient.addTheater(theaterDTO1).execute();
             assert execute1.code() == 200;
 
-            String theaterResponse = execute1.body();
-            JSONObject theaterResponseObject = new JSONObject(theaterResponse);
-            String theaterId = theaterResponseObject.getString("id");
+            TheaterDTO theaterResponse = execute1.body();
+            System.out.println(theaterResponse);
+            String theaterId = theaterResponse.getId();
 
             assert theaterId != null;
 
@@ -58,6 +63,7 @@ public class Show {
             showDTO.setTheaterId(theaterId);
 
             Response<ShowDTO> execute2 = theaterClient.addShow(showDTO).execute();
+            System.out.println(execute2.body());
             assert execute2.code() == 200;
             return execute2.body();
         } catch (IOException e) {

@@ -1,4 +1,4 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.dto;
 
 
 public class ShowDTO {
@@ -58,5 +58,17 @@ public class ShowDTO {
 
     public void setEmptySeat(int emptySeat) {
         this.emptySeat = emptySeat;
+    }
+
+    @Override
+    public String toString() {
+        return "ShowDTO{" +
+                "id='" + id + '\'' +
+                ", theaterId='" + theaterId + '\'' +
+                ", movieId='" + movieId + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", emptySeat=" + emptySeat +
+                '}';
     }
 }

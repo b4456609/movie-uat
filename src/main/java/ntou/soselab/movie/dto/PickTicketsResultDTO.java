@@ -1,9 +1,20 @@
-package ntou.soselab.movie;
+package ntou.soselab.movie.dto;
 
-public class BookDTO {
+public class PickTicketsResultDTO {
+    /**
+     * id : string
+     * pickUp : true
+     * showId : string
+     * ticket : 0
+     * timestamp : 0
+     * userId : string
+     */
+
     private String id;
+    private boolean pickUp;
     private String showId;
     private int ticket;
+    private int timestamp;
     private String userId;
 
     public String getId() {
@@ -12,6 +23,14 @@ public class BookDTO {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public boolean isPickUp() {
+        return pickUp;
+    }
+
+    public void setPickUp(boolean pickUp) {
+        this.pickUp = pickUp;
     }
 
     public String getShowId() {
@@ -28,6 +47,14 @@ public class BookDTO {
 
     public void setTicket(int ticket) {
         this.ticket = ticket;
+    }
+
+    public int getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(int timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getUserId() {
