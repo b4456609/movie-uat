@@ -7,7 +7,6 @@ import ntou.soselab.movie.config.GetRetrofit;
 import ntou.soselab.movie.dto.MovieDTO;
 import ntou.soselab.movie.dto.ShowDTO;
 import ntou.soselab.movie.dto.TheaterDTO;
-import org.json.JSONObject;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
