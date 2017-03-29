@@ -1,0 +1,1934 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 2452537929,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "the following movies exist:",
+            "match": {
+              "location": "MovieDetail.the_following_movies_exist(String\u003e\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "La La Land"
+                ],
+                "line": 4
+              },
+              {
+                "cells": [
+                  "Moonlight"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "Zootopia"
+                ],
+                "line": 6
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2045966434,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 31114490,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 9,
+        "name": "View All Movie Detail",
+        "description": "",
+        "id": "movie-detail;view-all-movie-detail",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 93887,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 303554968,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I view all movies detail",
+            "match": {
+              "location": "MovieDetail.i_view_all_movies_detail()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 141009689,
+              "error_message": "java.lang.AssertionError: \nExpecting:\n \u003c3\u003e\nto be greater than:\n \u003c3\u003e \n\tat ntou.soselab.movie.MovieDetail.i_get_movies_detail(MovieDetail.java:63)\n\tat ✽.Then I get 3 movies detail(ntou/soselab/movie/movieDetail.feature:12)\n",
+              "status": "failed"
+            },
+            "line": 12,
+            "name": "I get 3 movies detail",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 6
+                }
+              ],
+              "location": "MovieDetail.i_get_movies_detail(int)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 8,
+            "name": "@movie_endpoint_/_GET"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 143278367,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "the following movies exist:",
+            "match": {
+              "location": "MovieDetail.the_following_movies_exist(String\u003e\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "La La Land"
+                ],
+                "line": 4
+              },
+              {
+                "cells": [
+                  "Moonlight"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "Zootopia"
+                ],
+                "line": 6
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 10481140,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 17883678,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 23,
+        "name": "View a Specific Movie Detail",
+        "description": "",
+        "id": "movie-detail;view-a-specific-movie-detail;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1034721,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 161796,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I provide a La La Land",
+            "match": {
+              "location": "MovieDetail.i_provide_a_La_La_Land()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 62688218,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I view La La Land detail",
+            "match": {
+              "location": "MovieDetail.i_view_La_La_Land_detail()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 10959026,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "The La La Land should be exist",
+            "match": {
+              "location": "MovieDetail.The_LaLaLand_should_be_exist()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 14,
+            "name": "@movie_endpoint_/find_GET"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 125486632,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "the following movies exist:",
+            "match": {
+              "location": "MovieDetail.the_following_movies_exist(String\u003e\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "La La Land"
+                ],
+                "line": 4
+              },
+              {
+                "cells": [
+                  "Moonlight"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "Zootopia"
+                ],
+                "line": 6
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 25043756,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 13115216,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 24,
+        "name": "View a Specific Movie Detail",
+        "description": "",
+        "id": "movie-detail;view-a-specific-movie-detail;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 65964,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 109332,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I provide a Moonlight",
+            "match": {
+              "location": "MovieDetail.i_provide_a_Moonlight()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 32763921,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I view Moonlight detail",
+            "match": {
+              "location": "MovieDetail.i_view_Moonlight_detail()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 117576,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "The Moonlight should be exist",
+            "match": {
+              "location": "MovieDetail.The_Moonlight_should_be_exist()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 14,
+            "name": "@movie_endpoint_/find_GET"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 94274570,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "the following movies exist:",
+            "match": {
+              "location": "MovieDetail.the_following_movies_exist(String\u003e\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "La La Land"
+                ],
+                "line": 4
+              },
+              {
+                "cells": [
+                  "Moonlight"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "Zootopia"
+                ],
+                "line": 6
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 11396319,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 16700902,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 25,
+        "name": "View a Specific Movie Detail",
+        "description": "",
+        "id": "movie-detail;view-a-specific-movie-detail;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 94248,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 118811,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I provide a Zootopia",
+            "match": {
+              "location": "MovieDetail.i_provide_a_Zootopia()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 28766901,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I view Zootopia detail",
+            "match": {
+              "location": "MovieDetail.i_view_Zootopia_detail()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 123203,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "The Zootopia should be exist",
+            "match": {
+              "location": "MovieDetail.The_Zootopia_should_be_exist()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 14,
+            "name": "@movie_endpoint_/find_GET"
+          }
+        ]
+      }
+    ],
+    "name": "Movie Detail",
+    "description": "",
+    "id": "movie-detail",
+    "keyword": "Feature",
+    "uri": "ntou/soselab/movie/movieDetail.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 394358417,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the following show exist:",
+            "match": {
+              "location": "TimetableTest.the_following_show_exist(Timetable\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "startTimeHour",
+                  "startTimeMinute",
+                  "theater",
+                  "emptySeat",
+                  "movie"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "10",
+                  "0",
+                  "2",
+                  "21",
+                  "La La Land"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "10",
+                  "10",
+                  "3",
+                  "12",
+                  "La La Land"
+                ],
+                "line": 7
+              },
+              {
+                "cells": [
+                  "10",
+                  "20",
+                  "1",
+                  "2",
+                  "Moonlight"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "13",
+                  "0",
+                  "4",
+                  "0",
+                  "Zootopia"
+                ],
+                "line": 9
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8552867,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 16682433,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 12,
+        "name": "View Movie Timetable",
+        "description": "",
+        "id": "movie-timetable;view-movie-timetable",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 302483,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 453776980,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I view timetable",
+            "match": {
+              "location": "TimetableTest.i_view_timetable()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 8442155,
+              "error_message": "org.junit.ComparisonFailure: expected:\u003c[4]\u003e but was:\u003c[0]\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat ntou.soselab.movie.TimetableTest.i_get_show_information(TimetableTest.java:64)\n\tat ✽.Then I get 4 show information(ntou/soselab/movie/movieTimetable.feature:15)\n",
+              "status": "failed"
+            },
+            "line": 15,
+            "name": "I get 4 show information",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 6
+                }
+              ],
+              "location": "TimetableTest.i_get_show_information(int)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 11,
+            "name": "@theater_endpoint_/timetable_GET"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 144244651,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the following show exist:",
+            "match": {
+              "location": "TimetableTest.the_following_show_exist(Timetable\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "startTimeHour",
+                  "startTimeMinute",
+                  "theater",
+                  "emptySeat",
+                  "movie"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "10",
+                  "0",
+                  "2",
+                  "21",
+                  "La La Land"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "10",
+                  "10",
+                  "3",
+                  "12",
+                  "La La Land"
+                ],
+                "line": 7
+              },
+              {
+                "cells": [
+                  "10",
+                  "20",
+                  "1",
+                  "2",
+                  "Moonlight"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "13",
+                  "0",
+                  "4",
+                  "0",
+                  "Zootopia"
+                ],
+                "line": 9
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 6835071,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 11845141,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 26,
+        "name": "View Show Detail",
+        "description": "",
+        "id": "movie-timetable;view-show-detail;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 54204,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 85861660,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I view show, La La Land, detail",
+            "match": {
+              "location": "TimetableTest.iViewShowMovieDetail()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 959073,
+              "error_message": "org.junit.ComparisonFailure: expected:\u003c[2]\u003e but was:\u003c[0]\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat ntou.soselab.movie.TimetableTest.the_number_of_result_should_be(TimetableTest.java:76)\n\tat ✽.Then The number of result should be 2(ntou/soselab/movie/movieTimetable.feature:21)\n",
+              "status": "failed"
+            },
+            "line": 21,
+            "name": "The number of result should be 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 31
+                }
+              ],
+              "location": "TimetableTest.the_number_of_result_should_be(int)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "21 empty seat should be exist in one item",
+            "match": {
+              "arguments": [
+                {
+                  "val": "21",
+                  "offset": 0
+                }
+              ],
+              "location": "TimetableTest.empty_seat_should_be_exist_in_one_item(int)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 17,
+            "name": "@theater_endpoint_/timetable_GET"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 146546195,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the following show exist:",
+            "match": {
+              "location": "TimetableTest.the_following_show_exist(Timetable\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "startTimeHour",
+                  "startTimeMinute",
+                  "theater",
+                  "emptySeat",
+                  "movie"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "10",
+                  "0",
+                  "2",
+                  "21",
+                  "La La Land"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "10",
+                  "10",
+                  "3",
+                  "12",
+                  "La La Land"
+                ],
+                "line": 7
+              },
+              {
+                "cells": [
+                  "10",
+                  "20",
+                  "1",
+                  "2",
+                  "Moonlight"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "13",
+                  "0",
+                  "4",
+                  "0",
+                  "Zootopia"
+                ],
+                "line": 9
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 6876723,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 10701663,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "View Show Detail",
+        "description": "",
+        "id": "movie-timetable;view-show-detail;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 56160,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 39363625,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I view show, La La Land, detail",
+            "match": {
+              "location": "TimetableTest.iViewShowMovieDetail()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1155704,
+              "error_message": "org.junit.ComparisonFailure: expected:\u003c[2]\u003e but was:\u003c[0]\u003e\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat ntou.soselab.movie.TimetableTest.the_number_of_result_should_be(TimetableTest.java:76)\n\tat ✽.Then The number of result should be 2(ntou/soselab/movie/movieTimetable.feature:21)\n",
+              "status": "failed"
+            },
+            "line": 21,
+            "name": "The number of result should be 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 31
+                }
+              ],
+              "location": "TimetableTest.the_number_of_result_should_be(int)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "12 empty seat should be exist in one item",
+            "match": {
+              "arguments": [
+                {
+                  "val": "12",
+                  "offset": 0
+                }
+              ],
+              "location": "TimetableTest.empty_seat_should_be_exist_in_one_item(int)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 17,
+            "name": "@theater_endpoint_/timetable_GET"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 130911024,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the following show exist:",
+            "match": {
+              "location": "TimetableTest.the_following_show_exist(Timetable\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "startTimeHour",
+                  "startTimeMinute",
+                  "theater",
+                  "emptySeat",
+                  "movie"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "10",
+                  "0",
+                  "2",
+                  "21",
+                  "La La Land"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "10",
+                  "10",
+                  "3",
+                  "12",
+                  "La La Land"
+                ],
+                "line": 7
+              },
+              {
+                "cells": [
+                  "10",
+                  "20",
+                  "1",
+                  "2",
+                  "Moonlight"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "13",
+                  "0",
+                  "4",
+                  "0",
+                  "Zootopia"
+                ],
+                "line": 9
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 5110485,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 20688969,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 28,
+        "name": "View Show Detail",
+        "description": "",
+        "id": "movie-timetable;view-show-detail;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 49488,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 20,
+            "name": "I view show, Moonlight, detail",
+            "match": {},
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 21,
+            "name": "The number of result should be 1",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 31
+                }
+              ],
+              "location": "TimetableTest.the_number_of_result_should_be(int)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "2 empty seat should be exist in one item",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 0
+                }
+              ],
+              "location": "TimetableTest.empty_seat_should_be_exist_in_one_item(int)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 17,
+            "name": "@theater_endpoint_/timetable_GET"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 141233825,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the following show exist:",
+            "match": {
+              "location": "TimetableTest.the_following_show_exist(Timetable\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "startTimeHour",
+                  "startTimeMinute",
+                  "theater",
+                  "emptySeat",
+                  "movie"
+                ],
+                "line": 5
+              },
+              {
+                "cells": [
+                  "10",
+                  "0",
+                  "2",
+                  "21",
+                  "La La Land"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "10",
+                  "10",
+                  "3",
+                  "12",
+                  "La La Land"
+                ],
+                "line": 7
+              },
+              {
+                "cells": [
+                  "10",
+                  "20",
+                  "1",
+                  "2",
+                  "Moonlight"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "13",
+                  "0",
+                  "4",
+                  "0",
+                  "Zootopia"
+                ],
+                "line": 9
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 5066734,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 31534416,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 29,
+        "name": "View Show Detail",
+        "description": "",
+        "id": "movie-timetable;view-show-detail;;5",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 59844,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I am a guest",
+            "match": {
+              "location": "MovieDetail.i_am_a_guest()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 20,
+            "name": "I view show, Zootopia, detail",
+            "match": {},
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 21,
+            "name": "The number of result should be 1",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 31
+                }
+              ],
+              "location": "TimetableTest.the_number_of_result_should_be(int)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "0 empty seat should be exist in one item",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 0
+                }
+              ],
+              "location": "TimetableTest.empty_seat_should_be_exist_in_one_item(int)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 17,
+            "name": "@theater_endpoint_/timetable_GET"
+          }
+        ]
+      }
+    ],
+    "name": "Movie Timetable",
+    "description": "",
+    "id": "movie-timetable",
+    "keyword": "Feature",
+    "uri": "ntou/soselab/movie/movieTimetable.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 3,
+            "name": "the following user exist:",
+            "match": {},
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "phone"
+                ],
+                "line": 4
+              },
+              {
+                "cells": [
+                  "Ben",
+                  "1234567890"
+                ],
+                "line": 5
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 7685545,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 14974275,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 8,
+        "name": "Book tickets",
+        "description": "",
+        "id": "ticket;book-tickets",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "the show exist:",
+            "match": {
+              "location": "OrderTest.the_show_exist(Timetable\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "startTimeHour",
+                  "startTimeMinute",
+                  "theater",
+                  "emptySeat",
+                  "movie"
+                ],
+                "line": 10
+              },
+              {
+                "cells": [
+                  "10",
+                  "30",
+                  "2",
+                  "21",
+                  "La La Land"
+                ],
+                "line": 11
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 12,
+            "name": "The user book a La La Land ticket",
+            "match": {
+              "location": "OrderTest.the_user_book_a_La_La_Land_ticket()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "Successful book the ticket",
+            "match": {
+              "location": "OrderTest.successful_book_the_ticket()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 7,
+            "name": "@order_endpoint_/book_POST"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 3,
+            "name": "the following user exist:",
+            "match": {},
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "phone"
+                ],
+                "line": 4
+              },
+              {
+                "cells": [
+                  "Ben",
+                  "1234567890"
+                ],
+                "line": 5
+              }
+            ],
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 4633834,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 19881852,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "Pick up tickets",
+        "description": "",
+        "id": "ticket;pick-up-tickets",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 17,
+            "name": "Ben has a order which is not picked up",
+            "match": {
+              "location": "OrderTest.ben_has_a_order_which_is_not_picked_up()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 18,
+            "name": "The Ben pick the ticket",
+            "match": {
+              "location": "OrderTest.the_Ben_pick_the_ticket()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 19,
+            "name": "Successful pick up the ticket",
+            "match": {
+              "location": "OrderTest.successful_pick_up_the_ticket()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 15,
+            "name": "@order_endpoint_/tickets/{orderId}_POST"
+          }
+        ]
+      }
+    ],
+    "name": "Ticket",
+    "description": "",
+    "id": "ticket",
+    "keyword": "Feature",
+    "uri": "ntou/soselab/movie/ticket.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 4455862,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 9130639,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 15,
+        "name": "User Registraion",
+        "description": "",
+        "id": "user-registraion;user-registraion;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 4416262,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am a unregister user",
+            "match": {
+              "location": "UserTest.i_am_a_unregister_user()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 100764,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I provide a Ben",
+            "match": {
+              "location": "UserTest.i_provide_a_Ben()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 273227,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I provide a 1234567890",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1234567890",
+                  "offset": 12
+                }
+              ],
+              "location": "UserTest.i_provide_a(int)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 595767066,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I register the account",
+            "match": {
+              "location": "UserTest.i_register_the_account()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 136115,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I got my user id",
+            "match": {
+              "location": "UserTest.i_got_my_user_id()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 206580,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I can check my name is Ben",
+            "match": {
+              "location": "UserTest.i_can_check_my_name_is_Ben()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 450311,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I can check my phone number is 1234567890",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1234567890",
+                  "offset": 31
+                }
+              ],
+              "location": "UserTest.i_can_check_my_phone_number_is(int)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@user_endpoint_/registration_POST"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 6714351,
+              "status": "passed"
+            },
+            "match": {
+              "location": "MovieDetail.before()"
+            }
+          },
+          {
+            "result": {
+              "duration": 11276066,
+              "status": "passed"
+            },
+            "match": {
+              "location": "OrderTest.before()"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "User Registraion",
+        "description": "",
+        "id": "user-registraion;user-registraion;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 9277615,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am a unregister user",
+            "match": {
+              "location": "UserTest.i_am_a_unregister_user()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 92855,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I provide a Marry",
+            "match": {
+              "location": "UserTest.i_provide_a_Marry()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 203664,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I provide a 1234523590",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1234523590",
+                  "offset": 12
+                }
+              ],
+              "location": "UserTest.i_provide_a(int)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 81790192,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I register the account",
+            "match": {
+              "location": "UserTest.i_register_the_account()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 90059,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I got my user id",
+            "match": {
+              "location": "UserTest.i_got_my_user_id()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 147612,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I can check my name is Marry",
+            "match": {
+              "location": "UserTest.i_can_check_my_name_is_Marry()"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 518219,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I can check my phone number is 1234523590",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1234523590",
+                  "offset": 31
+                }
+              ],
+              "location": "UserTest.i_can_check_my_phone_number_is(int)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@user_endpoint_/registration_POST"
+          }
+        ]
+      }
+    ],
+    "name": "User Registraion",
+    "description": "",
+    "id": "user-registraion",
+    "keyword": "Feature",
+    "uri": "ntou/soselab/movie/user.feature"
+  }
+]
