@@ -96,6 +96,7 @@ public class OrderTest {
     @Then("^Successful book the ticket$")
     public void successful_book_the_ticket() throws Throwable {
         BookDTO body = bookResponse.body();
+        System.out.println(bookResponse.code());
         System.out.println(body);
         assert bookResponse.code() == 200;
     }
