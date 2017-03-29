@@ -5,7 +5,7 @@ Feature: Movie Detail
             | Moonlight   |
             | Zootopia    |
 
-    @movie_endpoint_/_GET
+  @movie_endpoint_/find_GET
     Scenario: View All Movie Detail
         Given I am a guest
         When I view all movies detail
