@@ -14,6 +14,9 @@ Feature: Ticket
 
     @order_endpoint_/tickets/{orderId}_POST
     Scenario: Pick up tickets
-        Given Ben has a order which is not picked up
+        Given the show exist:
+            | startTimeHour  | startTimeMinute  |theater | emptySeat | movie       |
+            | 10             | 30               | 2      | 21        | La La Land  |
+        And Ben has a order which is not picked up
         When The Ben pick the ticket
         Then Successful pick up the ticket

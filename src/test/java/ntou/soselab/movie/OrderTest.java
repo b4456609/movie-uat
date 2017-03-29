@@ -80,6 +80,7 @@ public class OrderTest {
             showDTO.setEmptySeat(item.getEmptySeat());
 
             showDTO1 = show.addShow(movieDTO, null, showDTO);
+            System.out.println(showDTO1);
         });
     }
 
@@ -94,12 +95,15 @@ public class OrderTest {
 
     @Then("^Successful book the ticket$")
     public void successful_book_the_ticket() throws Throwable {
+        BookDTO body = bookResponse.body();
+        System.out.println(body);
         assert bookResponse.code() == 200;
     }
 
     @Given("^Ben has a order which is not picked up$")
     public void ben_has_a_order_which_is_not_picked_up() throws Throwable {
         BookDTO bookDTO = new BookDTO();
+        System.out.println(showDTO1);
         bookDTO.setShowId(showDTO1.getId());
         bookDTO.setTicket(1);
         bookDTO.setUserId(userBen.getId());

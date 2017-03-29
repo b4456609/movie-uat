@@ -12,7 +12,7 @@ public class OrderResultDTO {
     private boolean pickUp;
     private String showId;
     private int ticket;
-    private int timestamp;
+    private long timestamp;
     private String userId;
 
     public String getId() {
@@ -47,11 +47,11 @@ public class OrderResultDTO {
         this.ticket = ticket;
     }
 
-    public int getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(int timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 
