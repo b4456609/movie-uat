@@ -10,11 +10,6 @@ repositories {
     jcenter()
 }
 
-ext{
-    mgp = System.getenv("MGP");
-    target = System.getenv("TARGET");
-}
-
 group 'com.example'
 version '1.0-SNAPSHOT'
 
@@ -35,43 +30,4 @@ dependencies {
     compile group: 'org.json', name: 'json', version: '20160810'
 
     compile group: 'com.squareup.retrofit2', name: 'converter-jackson', version: '2.2.0'
-}
-configurations {
-    cucumberRuntime {
-        extendsFrom testRuntime
-    }
-}
-
-task regression() {
-    dependsOn assemble, compileTestJava
-    doLast {
-        def apiurl = "http://"+ mgp + "/api/regression/uat/" + target
-        def p = new URL(apiurl).text
-        def json = new JsonSlurper().parseText(p)
-        def tag = json.join(",")
-
-        println tag
-        def argsConfig = ['--plugin', 'html:output','--plugin', 'json:build/cucumber/cucumber.json','--plugin', 'pretty','--plugin', 'progress:build/cucumber/cucumber.txt','--plugin', 'usage:build/cucumber/usage.txt', '--glue', 'ntou.soselab.movie', 'src/test/resources']
-        argsConfig.addAll(['--tags', tag])
-        println(argsConfig)
-        javaexec {
-            main = "cucumber.api.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = argsConfig
-        }
-    }
-}
-
-task rest() {
-    dependsOn assemble, compileTestJava
-    doLast {
-        def argsConfig = ['--plugin', 'html:output','--plugin', 'json:build/cucumber/cucumber.json','--plugin', 'pretty','--plugin', 'progress:build/cucumber/cucumber.txt','--plugin', 'usage:build/cucumber/usage.txt', '--glue', 'soselab.easylearn', 'src/test/resources']
-        argsConfig.addAll(['--tags', '~@easylearn_pack_endpoint_/_POST','--tags','~@easylearn_pack_endpoint_/_GET'])
-        println(argsConfig)
-        javaexec {
-            main = "cucumber.api.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = argsConfig
-        }
-    }
 }
