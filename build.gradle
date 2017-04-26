@@ -11,8 +11,8 @@ repositories {
 }
 
 ext{
-    tag = System.getenv("DATA");
-}
+    scenarioNames = System.getenv("DATA");
+}   
 
 group 'com.example'
 version '1.0-SNAPSHOT'
@@ -44,9 +44,10 @@ configurations {
 task regression() {
     dependsOn assemble, compileTestJava
     doLast {
-        println tag
-        def argsConfig = ['--plugin', 'html:output','--plugin', 'json:build/cucumber/cucumber.json','--plugin', 'pretty','--plugin', 'progress:build/cucumber/cucumber.txt','--plugin', 'usage:build/cucumber/usage.txt', '--glue', 'ntou.soselab.movie', 'src/test/resources']
-        argsConfig.addAll(['--tags', tag])
+        println scenarioNames
+        def argsConfig = ['--plugin', 'html:output','--plugin', 'json:build/cucumber/cucumber.json','--plugin', 'pretty', '--glue', 'ntou.soselab.movie', 'src/test/resources']
+        argsConfig.addAll(['--name', '('+ scenarioNames +')'])
+        // argsConfig.addAll(['--tags', tag])
         println(argsConfig)
         javaexec {
             main = "cucumber.api.cli.Main"

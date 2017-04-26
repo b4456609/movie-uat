@@ -5,10 +5,11 @@ var fs = require('fs');
 function runTest(data) {
     return new Promise(
         function (resolve, reject) {
-            var cmd = './gradlew clean regression';
+            var cmd = './gradlew regression';
             console.log(cmd)
             let environment = process.env;
-            var runData = data.join(",");
+            var runData = data.join("|");
+            console.log(runData)
             environment.DATA = runData;
             var history = execSync(cmd, { encoding: 'utf8', env: environment });
             console.log(history);
@@ -36,7 +37,26 @@ function getRegreesionInfo(callback) {
         });
 }
 
+function renameTest() {
+    return new Promise(
+        function (resolve, reject) {
+            const reportFolder = './build/cucumber';
+            fs.readdir(reportFolder, (err, files) => {
+                console.log(files)
+                files.forEach(file => {
+                    if (!file.startsWith("_")) {
+                        fs.renameSync(`${reportFolder}/${file}`, `${reportFolder}/_${time}_${file}`);
+                    }
+                    resolve();
+                });
+            })
+        });
+}
+
+
 function runStretegy(data) {
+    execSync('rm -rf build');
+    console.log(data)
     for (let item of data) {
         runTest(item);
     }
