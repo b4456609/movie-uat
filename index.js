@@ -5,7 +5,7 @@ var fs = require('fs');
 function runTest(data) {
     return new Promise(
         function (resolve, reject) {
-            var cmd = './gradlew regression';
+            var cmd = './gradlew regression --info';
             console.log(cmd)
             let environment = process.env;
             var runData = data.join("|");
