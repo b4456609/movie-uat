@@ -1,7 +1,7 @@
 var execSync = require('child_process').execSync;
 var http = require('http');
 var fs = require('fs');
-
+var time = 0;
 function runTest(data) {
     return new Promise(
         function (resolve, reject) {
@@ -13,6 +13,7 @@ function runTest(data) {
             environment.DATA = runData;
             var history = execSync(cmd, { encoding: 'utf8', env: environment });
             console.log(history);
+            resolve();
         });
 }
 
@@ -41,6 +42,7 @@ function renameTest() {
     return new Promise(
         function (resolve, reject) {
             const reportFolder = './build/cucumber';
+            console.log(reportFolder);
             fs.readdir(reportFolder, (err, files) => {
                 console.log(files)
                 files.forEach(file => {
@@ -54,11 +56,13 @@ function renameTest() {
 }
 
 
-function runStretegy(data) {
+async function runStretegy(data) {
     execSync('rm -rf build');
     console.log(data)
     for (let item of data) {
-        runTest(item);
+        time++;
+        runTest(item)
+            .then(renameTest);
     }
 }
 

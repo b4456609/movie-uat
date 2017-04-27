@@ -5,7 +5,7 @@ do
     FILE="$FILE -F \"file=@$file\""
 done
 
-COMMAND="curl -X POST -H \"Content-Type: multipart/form-data\" $FILE http://$MGP/api/test/uat"
+COMMAND="curl -i -X POST -H \"Content-Type: multipart/form-data\" $FILE http://$MGP/api/test/uat"
 echo "uplaod command"
 echo $COMMAND
 eval ${COMMAND}
