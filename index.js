@@ -5,14 +5,13 @@ var time = 0;
 function runTest(data) {
     return new Promise(
         function (resolve, reject) {
-            var cmd = './gradlew regression --info';
+            var cmd = './gradlew regression';
             console.log(cmd)
             let environment = process.env;
             var runData = data.join("|");
             console.log(runData)
             environment.DATA = runData;
-            var history = execSync(cmd, { encoding: 'utf8', env: environment });
-            console.log(history);
+            var history = execSync(cmd, { encoding: 'utf8', env: environment, stdio: [0, 1, 2] });
             resolve();
         });
 }
@@ -57,12 +56,17 @@ function renameTest() {
 
 
 async function runStretegy(data) {
-    execSync('rm -rf build');
-    console.log(data)
-    for (let item of data) {
-        time++;
-        runTest(item)
-            .then(renameTest);
+    try {
+        execSync('rm -rf build');
+        console.log(data)
+        for (let item of data) {
+            time++;
+            runTest(item)
+                .then(renameTest);
+        }
+    } catch (err) {
+        console.log(err); // oh noes, we got an error
+        await renameTest()
     }
 }
 
