@@ -61,8 +61,8 @@ async function runStretegy(data) {
         console.log(data)
         for (let item of data) {
             time++;
-            runTest(item)
-                .then(renameTest);
+            await runTest(item)
+            await renameTest();
         }
     } catch (err) {
         console.log(err); // oh noes, we got an error
