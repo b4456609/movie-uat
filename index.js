@@ -17,7 +17,8 @@ function runTest(data) {
 }
 
 function getRegreesionInfo(callback) {
-    http.get("http://" + process.env.MGP + "/api/regression/uat/" + process.env.TARGET, function (res) {
+    let num = process.env.NUM ? process.env.NUM : 0;
+    http.get("http://" + process.env.MGP + "/api/regression/uat/" + process.env.TARGET + "?num=" + num, function (res) {
         var body = ''; // Will contain the final response
         // Received data is a buffer.
         // Adding it to our body
