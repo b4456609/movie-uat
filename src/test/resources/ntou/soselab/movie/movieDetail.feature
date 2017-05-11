@@ -3,7 +3,7 @@ Feature: Movie Detail
         Given the following movies exist:
             | La La Land  |
             | Moonlight   |
-            | Zootopia    |
+            # | Zootopia    |
 
   @movie_endpoint_/find_GET
     Scenario: View All Movie Detail

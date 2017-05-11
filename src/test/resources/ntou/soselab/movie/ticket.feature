@@ -11,7 +11,7 @@ Feature: Ticket
     Scenario: Book tickets
         Given the show exist:
                 | startTimeHour  | startTimeMinute  |theater | emptySeat | movie       |
-                | 10             | 30               | 2      | 21        | La La Land  |
+                | 10             | 30               | 2      | 0        | La La Land  |
         When The user book a La La Land ticket
         Then Successful book the ticket
 

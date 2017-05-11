@@ -4,7 +4,7 @@ Feature: Movie Timetable
         Given the following show exist:
             | startTimeHour  | startTimeMinute  | theater | emptySeat | movie       |
             | 10             |           0      | 2       | 21        | La La Land  |
-            | 10             |          10      | 3       | 12        | La La Land  |
+            # | 10             |          10      | 3       | 12        | La La Land  |
             | 10             |          20      | 1       | 2         | Moonlight   |
             | 13             |           0      | 4       | 0         | Zootopia    |
 
