@@ -1,6 +1,5 @@
 Feature: User Registraion
 
-    @user_endpoint_/registration_POST
     Scenario Outline: User Registraion
         Given I am a unregister user
             And I provide a <name>

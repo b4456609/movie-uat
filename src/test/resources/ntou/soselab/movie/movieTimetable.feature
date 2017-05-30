@@ -8,13 +8,11 @@ Feature: Movie Timetable
             | 10             |          20      | 1       | 2         | Moonlight   |
             | 13             |           0      | 4       | 0         | Zootopia    |
 
-    @theater_endpoint_/timetable_GET
     Scenario: View Movie Timetable
         Given I am a guest
         When I view timetable
         Then I get 4 show information
 
-    @theater_endpoint_/timetable_GET
     Scenario Outline: View Show Detail
         Given I am a guest
         When I view show, <movie>, detail
